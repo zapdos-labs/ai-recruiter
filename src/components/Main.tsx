@@ -39,35 +39,36 @@ export default function Main() {
     <div class="min-h-screen  bg-white dark:bg-zinc-900 flex flex-col">
       <Header />
 
-      {/* Sub Header */}
+      {/* Sub Header - Responsive for mobile */}
       <Show when={videoId()}>
-        <div class="h-14 border-b px-4 border-zinc-200 border-t  flex items-center  sticky top-16 z-[200] bg-white w-full ">
-          <div class="flex-1 flex items-center gap-4">
+        <div class="border-b px-2 sm:px-4 py-2 sm:py-3 border-zinc-200 border-t flex flex-col sm:flex-row items-stretch sm:items-center sticky top-16 z-[200] bg-white w-full gap-2 sm:gap-0 min-h-14">
+          <div class="flex-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4">
             <button
-              class="btn-secondary"
+              class="btn-secondary flex-none w-full sm:w-auto"
               onClick={() => {
                 // Window reload without hash
                 window.location.hash = "";
                 location.reload();
               }}
             >
-              <VsAdd />
-              <div>New Upload</div>
+              <span class="flex items-center justify-center gap-1">
+                <VsAdd />
+                <span class="hidden xs:inline">New Upload</span>
+                <span class="inline xs:hidden">New</span>
+              </span>
             </button>
 
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 w-full sm:w-auto">
               <button
                 data-active={tabId() == "scenes"}
                 onClick={() => setTabId("scenes")}
-                class="px-3 py-1 border border-zinc-200
-                  data-[active=true]:border-fuchsia-500 data-[active=true]:bg-fuchsia-50 data-[active=true]:text-fuchsia-600 transition-all"
+                class="flex-1 sm:flex-none px-3 py-1 border border-zinc-200 data-[active=true]:border-fuchsia-500 data-[active=true]:bg-fuchsia-50 data-[active=true]:text-fuchsia-600 transition-all"
               >
                 Scenes
               </button>
               <button
                 data-active={tabId() == "transcription"}
-                class="px-3 py-1 border border-zinc-200
-                  data-[active=true]:border-fuchsia-500 data-[active=true]:bg-fuchsia-50 data-[active=true]:text-fuchsia-600 transition-all"
+                class="flex-1 sm:flex-none px-3 py-1 border border-zinc-200 data-[active=true]:border-fuchsia-500 data-[active=true]:bg-fuchsia-50 data-[active=true]:text-fuchsia-600 transition-all"
                 onClick={() => setTabId("transcription")}
               >
                 Transcription
@@ -76,7 +77,7 @@ export default function Main() {
           </div>
 
           <Show when={isIndexing() === false}>
-            {/* Minimalistic search input */}
+            {/* Minimalistic search input, responsive */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -87,15 +88,14 @@ export default function Main() {
                 }
                 __search.doSearch(video_id, query);
               }}
-              class="flex items-center gap-2"
+              class="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0"
             >
               <input
                 type="text"
                 value={queryText()}
                 onInput={(e) => setQueryText(e.currentTarget.value)}
                 placeholder="Search..."
-                class="ml-4 px-2 py-1 border border-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none transition"
-                style={{ width: "180px" }}
+                class="w-full sm:w-[180px] px-2 py-1 border border-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none transition"
               />
               <button
                 type="submit"

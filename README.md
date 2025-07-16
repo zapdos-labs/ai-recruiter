@@ -2,9 +2,13 @@
 
 
 <p align="center">
-  <img src="public/readme-header.png" alt="AI Recruiter Screenshot" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #0002;">
+  <img src="public/screenshot.png" alt="AI Recruiter Screenshot" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #0002;">
 </p>
 
+
+<p align="center">
+  <a href="https://recruiter.zapdoslabs.com/" target="_blank"><strong>recruiter.zapdoslabs.com</strong></a>
+</p>
 <p align="center">Upload and analyze interview videos with Zapdos API</p>
 
 # Overview
