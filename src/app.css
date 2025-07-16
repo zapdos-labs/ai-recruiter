@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@theme {
+    --font-ibm-plex-mono:
+        "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+    --font-ibm-plex-sans: "IBM Plex Sans", system-ui, sans-serif;
+    --font-manrope: "Manrope", system-ui, sans-serif;
+    --font-montserrat: "Montserrat", system-ui, sans-serif;
+}
+
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+/* Modular styles */
+@import "./styles/tabs.css";
+@import "./styles/toast.css";
+@import "./styles/menu.css";
+@import "./styles/dialog.css";
+@import "./styles/tooltip.css";
+@import "./styles/switch.css";
+@import "./styles/popover.css";
+@import "./styles/checkbox.css";
+@import "./styles/color-picker.css";
+@import "./styles/slider.css";
+@import "./styles/select.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+    font-family: var(--font-ibm-plex-sans);
+    @apply transition-colors bg-white text-black dark:bg-zinc-900 dark:text-white;
+}
+
+/* Base button behavior */
+@layer base {
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+/* Action button styles */
+.action-btn {
+    @apply px-3 h-8 text-xs transition-colors
+         data-[disabled=true]:bg-zinc-300
+         data-[disabled=true]:text-zinc-500
+         data-[disabled=true]:cursor-not-allowed
+         bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800
+         text-black dark:text-white
+         data-[disabled=false]:hover:bg-zinc-100
+         dark:data-[disabled=false]:hover:bg-zinc-800
+         border border-zinc-200 dark:border-zinc-800 rounded;
+}
+
+/* Optional explicit fallback for disabled state */
+.action-btn[data-disabled="true"] {
+    @apply bg-zinc-300 dark:bg-zinc-800 text-zinc-500 cursor-not-allowed;
+}
+
+.btn-primary {
+    @apply px-3 py-1 bg-black text-white enabled:hover:bg-zinc-950 disabled:opacity-80 disabled:cursor-not-allowed flex items-center gap-1.5
+}
+
+.btn-secondary {
+    @apply px-3 py-1 bg-white text-black enabled:hover:bg-zinc-100 disabled:opacity-80 disabled:cursor-not-allowed border border-zinc-200 flex items-center gap-1.5
+}
+
+/* Highlighting styles for search matches */
+mark {
+    @apply bg-fuchsia-200 dark:bg-fuchsia-800 text-fuchsia-900 dark:text-fuchsia-100 px-1 rounded font-medium;
+}

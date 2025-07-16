@@ -1,0 +1,98 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Animations */
+[data-scope="select"][data-part="content"][data-state="open"] {
+    animation: fadeIn 0.25s ease-out;
+}
+
+[data-scope="select"][data-part="content"][data-state="closed"] {
+    animation: fadeOut 0.2s ease-in;
+}
+
+/* Dropdown content */
+[data-scope="select"][data-part="content"] {
+    min-width: 200px;
+    background: #404040; /* zinc-700 */
+    border: 1px solid #525252; /* zinc-600 */
+    padding: 4px;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Group label */
+[data-scope="select"][data-part="item-group-label"] {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 6px;
+    margin-left: 4px;
+}
+
+/* Items */
+[data-scope="select"][data-part="item"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #e5e5e5; /* zinc-200 */
+}
+
+/* Highlighted */
+[data-scope="select"][data-part="item"][data-highlighted] {
+    background: #525252; /* zinc-600 */
+    color: white;
+}
+
+/* Disabled */
+[data-scope="select"][data-part="item"][data-disabled] {
+    color: #a3a3a3; /* zinc-400 */
+    cursor: not-allowed;
+}
+
+/* Trigger (picker) */
+[data-scope="select"][data-part="trigger"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    background: #404040; /* zinc-700 */
+    color: #e5e5e5; /* zinc-200 */
+}
+
+[data-scope="select"][data-part="trigger"]:hover {
+    border-color: #525252; /* zinc-600 */
+}
+
+/* Icon */
+[data-scope="select"][data-part="trigger"] svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+}

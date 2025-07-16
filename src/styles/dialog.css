@@ -1,0 +1,208 @@
+[data-scope="dialog"][data-part="backdrop"] {
+    background-color: rgba(0, 0, 0, 0);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999998;
+    transition: background-color 0.25s ease-out;
+}
+
+[data-scope="dialog"][data-part="positioner"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+[data-scope="dialog"][data-part="content"] {
+    background-color: #ffffff;
+    position: relative;
+    z-index: 999999;
+    width: 100%;
+    max-width: 32rem;
+    margin: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    
+    font-family: "IBM Plex Mono", monospace;
+}
+.dark [data-scope="dialog"][data-part="content"] {
+    background-color: #18181b;
+    border-color: #27272a;
+    color: #f4f4f5;
+}
+
+[data-scope="dialog"][data-part="close-trigger"] {
+    background-color: rgb(31, 31, 31);
+    border: none;
+    float: right;
+    outline: none;
+}
+.dark [data-scope="dialog"][data-part="close-trigger"] {
+    background-color: #27272a;
+    border-color: #3f3f46;
+    color: #f4f4f5;
+}
+
+[data-scope="dialog"][data-part="close-trigger"]:hover {
+    background-color: black;
+}
+.dark [data-scope="dialog"][data-part="close-trigger"]:hover {
+    
+}
+
+[data-scope="dialog"][data-part="close-trigger"][data-abort="true"] {
+    background-color: #450a0a;
+    border-color: #7f1d1d;
+}
+.dark [data-scope="dialog"][data-part="close-trigger"][data-abort="true"] {
+    background-color: #7f1d1d;
+    border-color: #b91c1c;
+    color: #fff;
+}
+
+[data-scope="dialog"][data-part="close-trigger"][data-abort="true"]:hover {
+    background-color: #7f1d1d;
+}
+.dark
+    [data-scope="dialog"][data-part="close-trigger"][data-abort="true"]:hover {
+    background-color: #b91c1c;
+}
+
+[data-scope="dialog"][data-part="backdrop"][data-state="open"] {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.dark [data-scope="dialog"][data-part="backdrop"][data-state="open"] {
+    background-color: rgba(0, 0, 0, 0.92);
+}
+
+[data-scope="dialog"][data-part="backdrop"][data-state="closed"] {
+    background-color: rgba(0, 0, 0, 0);
+}
+.dark [data-scope="dialog"][data-part="backdrop"][data-state="closed"] {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+[data-scope="dialog"][data-part="title"] {
+    font-weight: 600;
+    font-size: 1.125rem;
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: #18181b;
+}
+.dark [data-scope="dialog"][data-part="title"] {
+    color: #f4f4f5;
+}
+
+[data-scope="dialog"][data-part="description"] {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #52525b;
+}
+.dark [data-scope="dialog"][data-part="description"] {
+    color: #d4d4d8;
+}
+
+[data-scope="dialog"][data-part="content"][data-state="open"] {
+    animation: scaleIn 0.1s ease-out;
+}
+
+[data-scope="dialog"][data-part="content"][data-state="closed"] {
+    animation: scaleOut 0.1s ease-in;
+}
+
+[data-scope="dialog"] button {
+    background-color: #f5f5f5;
+    border: 1px solid #d4d4d8;
+    border-radius: 0px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: #18181b;
+    transition-duration: 300ms;
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
+.dark [data-scope="dialog"] button {
+    background-color: #27272a;
+    border-color: #3f3f46;
+    color: #f4f4f5;
+}
+
+[data-scope="dialog"] button:hover {
+    background-color: #e5e5e5;
+    border-color: #a3a3a3;
+}
+.dark [data-scope="dialog"] button:hover {
+    background-color: #3f3f46;
+    border-color: #71717a;
+}
+
+[data-scope="dialog"] button[data-abort="true"] {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    color: white;
+}
+.dark [data-scope="dialog"] button[data-abort="true"] {
+    background-color: #b91c1c;
+    border-color: #b91c1c;
+    color: #fff;
+}
+
+[data-scope="dialog"] button[data-abort="true"]:hover {
+    background-color: #b91c1c;
+}
+.dark [data-scope="dialog"] button[data-abort="true"]:hover {
+    background-color: #7f1d1d;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        scale: 0.8;
+        opacity: 0;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes scaleOut {
+    to {
+        scale: 0.8;
+        opacity: 0;
+    }
+}

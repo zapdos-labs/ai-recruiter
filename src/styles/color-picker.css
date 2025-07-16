@@ -1,0 +1,105 @@
+[data-scope="color-picker"][data-part="root"] {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+[data-scope="color-picker"][data-part="control"] {
+    display: flex;
+    gap: 4px;
+    background-color: #3f3f46; /* zinc-700 */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+[data-scope="color-picker"][data-part="control"]:hover {
+    border-color: #52525b; /* zinc-600 */
+}
+
+[data-scope="color-picker"][data-part="content"] {
+    z-index: 9999;
+    width: 180px;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d5d5d5;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* drop-shadow-2xl */
+}
+
+.dark [data-scope="color-picker"][data-part="content"] {
+    background-color: #27272a; /* zinc-800 */
+    border-color: #3f3f46; /* zinc-700 */
+}
+
+[data-scope="color-picker"][data-part="value-text"] {
+    min-width: fit-content;
+}
+
+[data-scope="color-picker"][data-part="content"]:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+[data-scope="color-picker"][data-part="area"] {
+    height: 100px;
+}
+
+[data-scope="color-picker"][data-part="area-background"] {
+    border-radius: 0.25rem;
+    height: 100px;
+}
+
+[data-scope="color-picker"][data-part="area-thumb"],
+[data-scope="color-picker"][data-part="channel-slider-thumb"] {
+    border: 2px solid white;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 0 0 1px black,
+        inset 0 0 0 1px black;
+    width: 12px;
+    height: 12px;
+}
+
+[data-scope="color-picker"][data-part="channel-slider-track"] {
+    height: 10px;
+    border-radius: 8px;
+}
+
+[data-scope="color-picker"][data-part="channel-slider"][data-channel="alpha"]
+    > [data-part="transparency-grid"] {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+[data-scope="color-picker"][data-part="channel-input"] {
+    width: 100%;
+    outline: none;
+}
+
+[data-scope="color-picker"][data-part="swatch-group"] {
+    display: flex;
+    gap: 8px;
+}
+
+/* Uncomment and use these styles if needed later
+[data-scope="color-picker"][data-part="swatch"] {
+  width: 24px;
+  height: 24px;
+  border-radius: 0.25rem;
+  border: 1px solid #3f3f46;
+  transition: all 0.2s ease;
+}
+
+[data-scope="color-picker"][data-part="swatch"]:hover {
+  border-color: #52525b;
+}
+
+[data-scope="color-picker"][data-part="transparency-grid"] {
+}
+*/

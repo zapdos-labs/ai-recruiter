@@ -1,0 +1,148 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+[data-scope="toast"][data-part="root"] {
+  background: #ffffff;
+  padding: 12px 16px; /* Increased padding slightly for a more spacious feel */
+  width: 360px;
+  overflow-wrap: anywhere;
+  translate: var(--x) var(--y);
+  scale: var(--scale);
+  z-index: var(--z-index);
+  height: var(--height);
+  opacity: var(--opacity);
+  will-change: translate, opacity, scale;
+  transition: translate 400ms, scale 400ms, opacity 400ms, height 400ms;
+  transition-timing-function: cubic-bezier(0.21, 1.02, 0.73, 1);
+  color: #333333; /* Default dark text color */
+}
+
+[data-scope="toast"][data-part="root"][data-state="closed"] {
+  transition: translate 400ms, scale 400ms, opacity 200ms;
+  transition-timing-function: cubic-bezier(0.06, 0.71, 0.55, 1);
+}
+
+[data-scope="toast"][data-part="close-trigger"] {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  padding: 0;
+}
+
+[data-scope="toast"][data-part="close-trigger"] svg {
+  width: 1em;
+  height: 1em;
+}
+
+[data-scope="toast"][data-part="title"] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #1a1a1a; /* Darker title color */
+}
+
+[data-scope="toast"][data-part="description"] {
+  color: #555555; /* Darker grey for description */
+  font-size: 0.9em; /* Slightly smaller description text */
+  margin-top: 4px; /* Add some space below title */
+}
+
+[data-scope="toast"][data-part="root"][data-type="error"] {
+  background-color: #fdecea; /* Light red */
+  border: 1px solid #f5c6cb; /* Light red border */
+  color: #721c24; /* Dark red text */
+}
+
+[data-scope="toast"][data-part="root"][data-type="info"] {
+  background-color: #e8f4fd; /* Light blue */
+  border: 1px solid #b8dffc; /* Light blue border */
+  color: #0c5460; /* Dark blue text */
+}
+
+[data-scope="toast"][data-part="root"][data-type="warning"] {
+  background-color: #fff9e6; /* Light yellow */
+  border: 1px solid #ffe8a1; /* Light yellow border */
+  color: #856404; /* Dark yellow text */
+}
+
+[data-scope="toast"][data-part="root"][data-type="success"] {
+  background-color: #eaf7ec; /* Light green */
+  border: 1px solid #c3e6cb; /* Light green border */
+  color: #155724; /* Dark green text */
+}
+
+/* Ensure titles and descriptions within typed toasts also get appropriate colors if not inheriting properly */
+[data-scope="toast"][data-part="root"][data-type="error"] [data-scope="toast"][data-part="title"],
+[data-scope="toast"][data-part="root"][data-type="error"] [data-scope="toast"][data-part="description"] {
+  color: #721c24;
+}
+
+[data-scope="toast"][data-part="root"][data-type="info"] [data-scope="toast"][data-part="title"],
+[data-scope="toast"][data-part="root"][data-type="info"] [data-scope="toast"][data-part="description"] {
+  color: #0c5460;
+}
+
+[data-scope="toast"][data-part="root"][data-type="warning"] [data-scope="toast"][data-part="title"],
+[data-scope="toast"][data-part="root"][data-type="warning"] [data-scope="toast"][data-part="description"] {
+  color: #856404;
+}
+
+[data-scope="toast"][data-part="root"][data-type="success"] [data-scope="toast"][data-part="title"],
+[data-scope="toast"][data-part="root"][data-type="success"] [data-scope="toast"][data-part="description"] {
+  color: #155724;
+}
+
+
+[data-scope="toast"] .spinner {
+  animation: spin 1s linear infinite;
+}
+
+[data-scope="toast"][data-part="progressbar"] {
+  height: 4px;
+  background: #cccccc; /* Lighter progress bar background */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  animation-name: shrink;
+  animation-fill-mode: forwards;
+}
+
+[data-scope="toast"][data-part="progressbar"][data-type="loading"] {
+  animation-name: none;
+}
+
+@media (max-width: 640px) {
+  [data-scope="toast"][data-part="group"] {
+    width: 100%;
+  }
+
+  [data-scope="toast"][data-part="root"] {
+    inset-inline: 0;
+    width: calc(100% - var(--gap) * 2);
+  }
+}

@@ -1,0 +1,60 @@
+[data-scope='popover'][data-part='content'] {
+  background-color: #171717;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  user-select: none;
+  border: 1px solid #262626;
+  position: relative;
+  min-width: 240px;
+}
+
+[data-scope='popover'][data-part='content'][data-state='open'] {
+  animation: fadeIn 0.25s ease-out;
+}
+
+[data-scope='popover'][data-part='content'][data-state='closed'] {
+  animation: fadeOut 0.2s ease-in;
+}
+
+[data-scope='popover'][data-part='title'] {
+  font-weight: bold;
+}
+
+[data-scope='popover'][data-part='close-trigger'] {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+[data-scope='popover'][data-part='anchor'] {
+  display: inline;
+  margin-left: 200px;
+}
+
+[data-scope='popover'][data-part='indicator'][data-state='open'] {
+  transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
